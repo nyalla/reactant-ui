@@ -22,10 +22,18 @@ const SideNav = () => {
         history.push('/files');
     }
 
+    const handleRegisterClickClick = () => {
+        history.push('/register');
+    }
+
   return (
       <div>
         <div style={{height: "32px", background: "rgba(255, 255, 255, 0.2)", margin: "16px"}}></div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu.Item key="4" onClick={handleRegisterClickClick}>
+                    <UserOutlined />
+                    <span> Organisation</span>
+                </Menu.Item>
                 <Menu.Item key="1" onClick={handleUserClick}>
                     <UserOutlined />
                     <span> Users</span>

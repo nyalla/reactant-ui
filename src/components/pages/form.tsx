@@ -16,6 +16,8 @@ const FormApp = () => {
   const history = useHistory();
 
   const handleSubmit = (values: any) => {
+     alert("sasa");
+     console.log(values)
     setLoading(true);
     axios.post(`http://localhost:5000/users`, 
       values

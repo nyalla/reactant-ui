@@ -5,8 +5,9 @@ import Form from "../components/pages/form";
 import SideNav from "../components/layouts/sidebar";
 import File from "../components/pages/files";
 import Videos from "../components/pages/videos";
-
-import { Layout } from 'antd';
+import RegistrationForm from "../components/pages/RegistrationForm";
+import Title from 'antd/lib/typography/Title';
+import { Layout,Avatar } from 'antd';
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined
@@ -33,12 +34,14 @@ const ApplicationRoutes = () => {
             <SideNav />
           </Sider>
           <Layout>
-            <Header className="siteLayoutBackground" style={{padding: 0, background: "#001529"}}>
+            <Header className="siteLayoutBackgrou.nd" style={{padding: 0, background: "#001529"}}>
                       {React.createElement(collapse ? MenuUnfoldOutlined : MenuFoldOutlined, {
                           className: 'trigger',
                           onClick: handleToggle,
                           style: {color: "#fff"}
                       })}
+                      {/* <Title style={{ color: 'red' }} level={3}>Chitfor</Title> */}
+                      <Avatar style={{ float: 'right' }} src='./dp.png' />
             </Header>
               <Content style={{margin: '24px 16px', padding: 24, minHeight: "calc(100vh - 114px)", background: "#fff"}}>
                 <Switch>
@@ -46,6 +49,7 @@ const ApplicationRoutes = () => {
                     <Route path="/form" component={Form} />
                     <Route path="/files" component={File} />
                     <Route path="/videos" component={Videos} />
+                    <Route path="/register" component={RegistrationForm} />
                     <Redirect to="/list" from="/" />
                 </Switch>
               </Content>
