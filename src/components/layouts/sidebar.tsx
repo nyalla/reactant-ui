@@ -1,5 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd';
+import SubMenu from 'antd/lib/menu/SubMenu';
+import { ClusterOutlined,TeamOutlined ,ReadOutlined   } from '@ant-design/icons';
 import {
     UserOutlined,
     VideoCameraOutlined,
@@ -25,6 +27,9 @@ const SideNav = () => {
     const handleRegisterClickClick = () => {
         history.push('/register');
     }
+    const handleOrganisationDetailsClick = () => {
+        history.push('/organisationDetails');
+    }
 
   return (
       <div>
@@ -45,6 +50,10 @@ const SideNav = () => {
                 <Menu.Item key="3" onClick={handleFileClick}>
                     <UploadOutlined />
                     <span> Files</span>
+                </Menu.Item>
+                <Menu.Item key="5" onClick={handleOrganisationDetailsClick}>
+                    <UploadOutlined />
+                    <span> Organisation Details</span>
                 </Menu.Item>
             </Menu>
         </div>

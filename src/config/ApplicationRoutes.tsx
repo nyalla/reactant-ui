@@ -5,6 +5,8 @@ import Form from "../components/pages/form";
 import SideNav from "../components/layouts/sidebar";
 import File from "../components/pages/files";
 import Videos from "../components/pages/videos";
+import OrganisationDetails from "../components/pages/organisationDetails";
+
 import RegistrationForm from "../components/pages/RegistrationForm";
 import Title from 'antd/lib/typography/Title';
 import { Layout,Avatar } from 'antd';
@@ -13,7 +15,7 @@ import {
     MenuFoldOutlined
   } from '@ant-design/icons';
 
-const { Header, Sider, Content} = Layout;
+const { Header, Sider, Content,Footer} = Layout;
 
 
 const ApplicationRoutes = () => {
@@ -34,7 +36,7 @@ const ApplicationRoutes = () => {
             <SideNav />
           </Sider>
           <Layout>
-            <Header className="siteLayoutBackgrou.nd" style={{padding: 0, background: "#001529"}}>
+            <Header className="siteLayoutBackground" style={{padding: 0, background: "#001529"}}>
                       {React.createElement(collapse ? MenuUnfoldOutlined : MenuFoldOutlined, {
                           className: 'trigger',
                           onClick: handleToggle,
@@ -50,9 +52,11 @@ const ApplicationRoutes = () => {
                     <Route path="/files" component={File} />
                     <Route path="/videos" component={Videos} />
                     <Route path="/register" component={RegistrationForm} />
+                    <Route path="/organisationDetails" component={OrganisationDetails} />
                     <Redirect to="/list" from="/" />
                 </Switch>
               </Content>
+              <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
           </Layout>
         </Layout>
     </Router>
