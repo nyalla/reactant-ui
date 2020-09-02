@@ -2,6 +2,7 @@
 import {Table, Row, Col, Button, Typography} from 'antd';
 import {useHistory} from 'react-router';
 import axios from 'axios';
+import { message } from 'antd';
 
 const {Title} = Typography;
 
@@ -10,36 +11,39 @@ const OrganisationDetails = () => {
   const history = useHistory();
   const [allData, setAllData] = useState([]);
 
+  const error = (msg: import("history").History.PoorMansUnknown) => {
+    message.error(msg);
+  };
+
   useEffect(() => {
     axios.get(`http://nyalla:8089/management/organisation/organisationId/8`).then(res => {
-      console.log(res.data)
-      setAllData(res.data);
-    });
+      console.log(res.data.data)
+      setAllData(res.data.data);
+    }).catch(err => {
+      // what now?
+      error("Error contacting API")
   });
+  },[]);
 
   const columns = [
     {
-      title: 'orgId',
-      dataIndex: 'orgId',
-    },
-    {
-      title: 'orgName',
+      title: 'Organisation Name',
       dataIndex: 'orgName'
     },
     {
-      title: 'legalId',
+      title: 'Legal ID',
       dataIndex: 'legalId'
     },
     {
-      title: 'estdDate',
+      title: 'Establishsed Date',
       dataIndex: 'estdDate'
     },
     {
-      title: 'chairmanName',
+      title: 'Chairman Name',
       dataIndex: 'chairmanName'
     },
     {
-      title: 'userName',
+      title: 'Super Username',
       dataIndex: 'userName'
     },
   ];
@@ -72,12 +76,12 @@ const OrganisationDetails = () => {
             </Title>
             </Col>
           <Col span={6}>
-          <Button onClick={handleClick} block>Add User</Button>
+          {/* <Button onClick={handleClick} block>Add User</Button> */}
           </Col>
         </Row>
         <Row gutter={[40, 0]}>
         <Col span={24}>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={data} pagination={false} />
         </Col>
         </Row>
     </div>
