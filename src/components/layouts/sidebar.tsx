@@ -15,46 +15,36 @@ const SideNav = () => {
     const handleUserClick = () => {
         history.push('/list');
     }
-
-    const handleVideosClick = () => {
-        history.push('/videos');
-    }
-
-    const handleFileClick = () => {
-        history.push('/files');
-    }
-
     const handleRegisterClickClick = () => {
         history.push('/register');
     }
     const handleOrganisationDetailsClick = () => {
         history.push('/organisationDetails');
     }
+    const handleOrganiserClick = () => {
+        history.push('/OrganiserForm');
+    }
 
   return (
       <div>
         <div style={{height: "32px", background: "rgba(255, 255, 255, 0.2)", margin: "16px"}}></div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="4" onClick={handleRegisterClickClick}>
+            <Menu.Item key="1" onClick={handleRegisterClickClick}>
                     <UserOutlined />
                     <span> Organisation</span>
                 </Menu.Item>
-                <Menu.Item key="1" onClick={handleUserClick}>
-                    <UserOutlined />
-                    <span> Users</span>
-                </Menu.Item>
-                <Menu.Item key="2" onClick={handleVideosClick}>
-                    <VideoCameraOutlined />
-                    <span> Videos</span>
-                </Menu.Item>
-                <Menu.Item key="3" onClick={handleFileClick}>
-                    <UploadOutlined />
-                    <span> Files</span>
-                </Menu.Item>
-                <Menu.Item key="5" onClick={handleOrganisationDetailsClick}>
+                <Menu.Item key="2" onClick={handleOrganisationDetailsClick}>
                     <UploadOutlined />
                     <span> Organisation Details</span>
                 </Menu.Item>
+                <Menu.Item key="3" onClick={handleOrganiserClick}>
+                    <UserOutlined />
+                    <span> Organisers</span>
+                </Menu.Item>
+                <Menu.Item key="4" onClick={handleUserClick}>
+                    <UserOutlined />
+                    <span> Users</span>
+                </Menu.Item>      
             </Menu>
         </div>
   );

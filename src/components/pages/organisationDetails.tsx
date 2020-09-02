@@ -56,7 +56,7 @@ const OrganisationDetails = () => {
      key: organisation.orgId,
      orgName: organisation.orgName,
      legalId: organisation.legalId,
-     estdDate: organisation.estdDate,
+     estdDate: new Date(organisation.estdDate).getFullYear(),
      chairmanName: organisation.chairmanName,
      userName: organisation.userName,
    })

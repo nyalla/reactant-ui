@@ -6,9 +6,8 @@ import SideNav from "../components/layouts/sidebar";
 import File from "../components/pages/files";
 import Videos from "../components/pages/videos";
 import OrganisationDetails from "../components/pages/organisationDetails";
-
 import RegistrationForm from "../components/pages/RegistrationForm";
-import Title from 'antd/lib/typography/Title';
+import OrganiserForm from "../components/pages/OrganiserForm";
 import { Layout,Avatar } from 'antd';
 import {
     MenuUnfoldOutlined,
@@ -53,6 +52,7 @@ const ApplicationRoutes = () => {
                     <Route path="/videos" component={Videos} />
                     <Route path="/register" component={RegistrationForm} />
                     <Route path="/organisationDetails" component={OrganisationDetails} />
+                    <Route path="/OrganiserForm" component={OrganiserForm} />
                     <Redirect to="/list" from="/" />
                 </Switch>
               </Content>
