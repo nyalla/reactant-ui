@@ -8,6 +8,10 @@ import Videos from "../components/pages/videos";
 import OrganisationDetails from "../components/pages/organisationDetails";
 import RegistrationForm from "../components/pages/RegistrationForm";
 import OrganiserForm from "../components/pages/OrganiserForm";
+import OrganiserDetails from "../components/pages/organiserDetails";
+import UserForm from "../components/pages/UserForm";
+import UserDetails from "../components/pages/userDetails";
+
 import { Layout,Avatar } from 'antd';
 import {
     MenuUnfoldOutlined,
@@ -53,7 +57,10 @@ const ApplicationRoutes = () => {
                     <Route path="/register" component={RegistrationForm} />
                     <Route path="/organisationDetails" component={OrganisationDetails} />
                     <Route path="/OrganiserForm" component={OrganiserForm} />
-                    <Redirect to="/list" from="/" />
+                    <Route path="/OrganiserDetails" component={OrganiserDetails} />
+                    <Route path="/UserForm" component={UserForm} />
+                    <Route path="/UserDetails" component={UserDetails} />
+                    <Redirect to="/organisationDetails" from="/" />
                 </Switch>
               </Content>
               <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

@@ -10,8 +10,7 @@ import {
 import { DatePicker } from 'antd';
 import axios from 'axios';
 import { message } from 'antd';
-import {useHistory} from 'react-router';
- 
+import {useHistory} from 'react-router'; 
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -43,9 +42,9 @@ const tailFormItemLayout = {
   },
 };
 
-const OrganiserForm = () => {
-  const history = useHistory();
+const UserForm = () => {
 
+  const history = useHistory();
   const [form] = Form.useForm();
   
   const success = (msg) => {
@@ -58,18 +57,15 @@ const OrganiserForm = () => {
   const onFinish = values => {
     const org = {
       name: values.name,
-      ageInField: values.ageInField,
       phone: values.phone,
       email: values.email,
       pan: values.pan,
       address: values.address,
-      dob:  moment(values.dob).format('YYYY-MM-DD'),
-      doj:  moment(values.doj).format('YYYY-MM-DD'),
-       
+      dob:  moment(values.dob).format('YYYY-MM-DD'), 
     };
     const stringJson = JSON.stringify(org);
     //console.log('JSON  ',stringJson);
-    axios.post(`http://nyalla:8089/management/organiser/orgId/8`, org, {
+    axios.post(`http://nyalla:8089/management/member/addedBy/8`, org, {
       headers: {
         'content-type': 'application/json'
       }
@@ -79,8 +75,9 @@ const OrganiserForm = () => {
       //console.log(res.data);
       if(res.data.statusCode ==200){
         success(res.data.message);
-        history.push('/OrganiserDetails');
+        history.push('/UserDetails');
       }
+      
       else
       error(res.data.message);
     }).catch(err => {
@@ -103,8 +100,8 @@ const OrganiserForm = () => {
         name="name"
         label={
           <span>
-            Organiser Name&nbsp;
-            <Tooltip title="Please enter your Organiser name">
+            Member Name&nbsp;
+            <Tooltip title="Please enter your member name">
                
             </Tooltip>
           </span>
@@ -112,7 +109,7 @@ const OrganiserForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your Organiser name!',
+            message: 'Please input your member name!',
             whitespace: true,
           },
         ]}
@@ -120,32 +117,12 @@ const OrganiserForm = () => {
         <Input />
       </Form.Item>
 
-      <Form.Item
-        name="ageInField"
-        label={
-          <span>
-            Experience in the field &nbsp;
-            <Tooltip title="Please enter Experience in the field">
-               
-            </Tooltip>
-          </span>
-        }
-        rules={[
-          {
-            required: true,
-            message: 'Please enter Experience in the field!',
-            whitespace: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
       <Form.Item
         name="phone"
         label={
           <span>
-            phone &nbsp;
-            <Tooltip title="Please enter phone in the field">
+            phone&nbsp;
+            <Tooltip title="Please enter your phone">
                
             </Tooltip>
           </span>
@@ -153,20 +130,20 @@ const OrganiserForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please enter phone in the field!',
+            message: 'Please input your phone !',
             whitespace: true,
           },
         ]}
       >
         <Input />
       </Form.Item>
-
+       
       <Form.Item
         name="email"
         label={
           <span>
             Email &nbsp;
-            <Tooltip title="Please enter email in the field">
+            <Tooltip title="Please enter your email">
                
             </Tooltip>
           </span>
@@ -174,7 +151,7 @@ const OrganiserForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please enter email in the field!',
+            message: 'Please input your email !',
             whitespace: true,
           },
         ]}
@@ -187,7 +164,7 @@ const OrganiserForm = () => {
         label={
           <span>
             PAN &nbsp;
-            <Tooltip title="Please enter pan in the field">
+            <Tooltip title="Please enter pan">
                
             </Tooltip>
           </span>
@@ -195,20 +172,20 @@ const OrganiserForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please enter pan in the field!',
+            message: 'Please input PAN !',
             whitespace: true,
           },
         ]}
       >
         <Input />
       </Form.Item>
-
+        
       <Form.Item
         name="address"
         label={
           <span>
             Address &nbsp;
-            <Tooltip title="Please enter address in the field">
+            <Tooltip title="Please enter address">
                
             </Tooltip>
           </span>
@@ -216,7 +193,7 @@ const OrganiserForm = () => {
         rules={[
           {
             required: true,
-            message: 'Please enter address in the field!',
+            message: 'Please input address !',
             whitespace: true,
           },
         ]}
@@ -224,27 +201,17 @@ const OrganiserForm = () => {
         <Input />
       </Form.Item>
 
-       <Form.Item  name="dob" label="DOB"
+       <Form.Item  name="dob" label="dob"
        rules={[
         {
           required: true,
-          message: 'Please input your Date of Birth!',
+          message: 'Please input your dob!',
         },
       ]}
       >
           <DatePicker picker = "year"/>
         </Form.Item>
 
-        <Form.Item  name="doj" label="DOJ"
-       rules={[
-        {
-          required: true,
-          message: 'Please input your Date of Joining!',
-        },
-      ]}
-      >
-          <DatePicker picker = "year"/>
-        </Form.Item>
       
   
       <Form.Item
@@ -271,4 +238,4 @@ const OrganiserForm = () => {
   );
 };
 
-export default OrganiserForm;
+export default UserForm;

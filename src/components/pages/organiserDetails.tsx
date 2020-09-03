@@ -7,7 +7,7 @@ import { message } from 'antd';
 const {Title} = Typography;
 
 
-const OrganisationDetails = () => {
+const OrganiserDetails = () => {
   const history = useHistory();
   const [allData, setAllData] = useState([]);
 
@@ -16,7 +16,7 @@ const OrganisationDetails = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://nyalla:8089/management/organisation/organisationId/8`).then(res => {
+    axios.get(`http://nyalla:8089/management/organiser/orgId/8`).then(res => {
       console.log(res.data.data)
       setAllData(res.data.data);
     }).catch(err => {
@@ -28,43 +28,60 @@ const OrganisationDetails = () => {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'orgName'
+      dataIndex: 'name'
     },
     {
-      title: 'Legal ID',
-      dataIndex: 'legalId'
+      title: 'Experience in Field',
+      dataIndex: 'ageInField'
     },
     {
-      title: 'Establishsed Year',
-      dataIndex: 'estdDate'
+      title: 'phone',
+      dataIndex: 'phone'
     },
     {
-      title: 'Chairman Name',
-      dataIndex: 'chairmanName'
+      title: 'Email',
+      dataIndex: 'email'
     },
     {
-      title: 'Super Username',
-      dataIndex: 'userName'
+      title: 'PAN',
+      dataIndex: 'pan'
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address'
+    },
+    {
+      title: 'DOB',
+      dataIndex: 'dob'
+    },
+    {
+      title: 'Joined On',
+      dataIndex: 'doj'
     },
   ];
 
   const data = [{
   }];
 
-  allData.map((organisation: any) => {
+  allData.map((organiser: any) => {
     data.push({
-     key: organisation.orgId,
-     orgName: organisation.orgName,
-     legalId: organisation.legalId,
-     estdDate: new Date(organisation.estdDate).getFullYear(),
-     chairmanName: organisation.chairmanName,
-     userName: organisation.userName,
+     key: organiser.organiserId,
+     name: organiser.name,
+     orgName: organiser.orgName,
+     ageInField: organiser.ageInField,
+     phone: organiser.phone,
+     email: organiser.email,
+     pan: organiser.pan,
+     address: organiser.address,
+     dob: new Date(organiser.dob).getFullYear(), 
+     doj: new Date(organiser.doj).getFullYear(), 
+ 
    })
    return data;
  });
 
   const handleClick = () => {
-    history.push('/form')
+    history.push('/OrganiserForm')
   }
 
   return (
@@ -72,11 +89,11 @@ const OrganisationDetails = () => {
         <Row gutter={[40, 0]}>
           <Col span={18}>
             <Title level={2}>
-            Organisation details
+            Organiser  Details
             </Title>
             </Col>
           <Col span={6}>
-          {/* <Button onClick={handleClick} block>Add User</Button> */}
+          <Button onClick={handleClick} block>Add Organiser</Button>
           </Col>
         </Row>
         <Row gutter={[40, 0]}>
@@ -88,4 +105,4 @@ const OrganisationDetails = () => {
   );
 }
 
-export default OrganisationDetails;
+export default OrganiserDetails;

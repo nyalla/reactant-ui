@@ -7,7 +7,7 @@ import { message } from 'antd';
 const {Title} = Typography;
 
 
-const OrganisationDetails = () => {
+const UserDetails = () => {
   const history = useHistory();
   const [allData, setAllData] = useState([]);
 
@@ -16,7 +16,7 @@ const OrganisationDetails = () => {
   };
 
   useEffect(() => {
-    axios.get(`http://nyalla:8089/management/organisation/organisationId/8`).then(res => {
+    axios.get(`http://nyalla:8089/management/member/addedBy/8`).then(res => {
       console.log(res.data.data)
       setAllData(res.data.data);
     }).catch(err => {
@@ -28,43 +28,50 @@ const OrganisationDetails = () => {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'orgName'
+      dataIndex: 'name'
     },
     {
-      title: 'Legal ID',
-      dataIndex: 'legalId'
+      title: 'Phone',
+      dataIndex: 'phone'
     },
     {
-      title: 'Establishsed Year',
-      dataIndex: 'estdDate'
+      title: 'Email',
+      dataIndex: 'email'
     },
     {
-      title: 'Chairman Name',
-      dataIndex: 'chairmanName'
+      title: 'PAN',
+      dataIndex: 'pan'
     },
     {
-      title: 'Super Username',
-      dataIndex: 'userName'
+      title: 'Address',
+      dataIndex: 'address'
     },
+    {
+      title: 'DOB',
+      dataIndex: 'dob'
+    },
+     
   ];
 
   const data = [{
   }];
 
-  allData.map((organisation: any) => {
+  allData.map((member: any) => {
     data.push({
-     key: organisation.orgId,
-     orgName: organisation.orgName,
-     legalId: organisation.legalId,
-     estdDate: new Date(organisation.estdDate).getFullYear(),
-     chairmanName: organisation.chairmanName,
-     userName: organisation.userName,
+     key: member.memberId,
+     name: member.name,
+     phone: member.phone,
+     email: member.email,
+     pan: member.pan,
+     address: member.address,
+     dob: new Date(member.dob).getFullYear(),
+      
    })
    return data;
  });
 
   const handleClick = () => {
-    history.push('/form')
+    history.push('/UserForm')
   }
 
   return (
@@ -72,11 +79,11 @@ const OrganisationDetails = () => {
         <Row gutter={[40, 0]}>
           <Col span={18}>
             <Title level={2}>
-            Organisation details
+            Member details
             </Title>
             </Col>
           <Col span={6}>
-          {/* <Button onClick={handleClick} block>Add User</Button> */}
+          <Button onClick={handleClick} block>Add Member</Button>
           </Col>
         </Row>
         <Row gutter={[40, 0]}>
@@ -88,4 +95,4 @@ const OrganisationDetails = () => {
   );
 }
 
-export default OrganisationDetails;
+export default UserDetails;
