@@ -209,7 +209,7 @@ const UserForm = () => {
         },
       ]}
       >
-          <DatePicker picker = "year"/>
+          <DatePicker />
         </Form.Item>
 
       

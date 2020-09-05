@@ -1,9 +1,10 @@
  import React, {useEffect, useState} from 'react';
+ import moment from 'moment';
 import {Table, Row, Col, Button, Typography} from 'antd';
 import {useHistory} from 'react-router';
 import axios from 'axios';
 import { message } from 'antd';
-
+import {List, Card } from 'antd';
 const {Title} = Typography;
 
 
@@ -64,11 +65,14 @@ const UserDetails = () => {
      email: member.email,
      pan: member.pan,
      address: member.address,
-     dob: new Date(member.dob).getFullYear(),
+     dob: moment(new Date(member.dob)).format('YYYY-MM-DD'),
       
    })
    return data;
  });
+
+ console.log("hi");
+ console.log(data);
 
   const handleClick = () => {
     history.push('/UserForm')
@@ -83,12 +87,29 @@ const UserDetails = () => {
             </Title>
             </Col>
           <Col span={6}>
-          <Button onClick={handleClick} block>Add Member</Button>
+          <Button  type="primary" shape="round"  onClick={handleClick} block>Add Member</Button>
           </Col>
         </Row>
         <Row gutter={[40, 0]}>
         <Col span={24}>
         <Table columns={columns} dataSource={data} pagination={false} />
+        {/* <List
+    grid={{
+      gutter: 16,
+      xs: 1,
+      sm: 2,
+      md: 4,
+      lg: 4,
+      xl: 6,
+      xxl: 3,
+    }}
+    dataSource={data}
+    renderItem={item => (
+      <List.Item>
+        <Card title={'name'}>Card content</Card>
+      </List.Item>
+    )}
+  /> */}
         </Col>
         </Row>
     </div>

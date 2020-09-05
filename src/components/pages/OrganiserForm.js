@@ -232,7 +232,7 @@ const OrganiserForm = () => {
         },
       ]}
       >
-          <DatePicker picker = "year"/>
+          <DatePicker />
         </Form.Item>
 
         <Form.Item  name="doj" label="DOJ"
@@ -243,7 +243,7 @@ const OrganiserForm = () => {
         },
       ]}
       >
-          <DatePicker picker = "year"/>
+          <DatePicker/>
         </Form.Item>
       
   

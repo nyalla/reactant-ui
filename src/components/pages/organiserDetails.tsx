@@ -3,6 +3,7 @@ import {Table, Row, Col, Button, Typography} from 'antd';
 import {useHistory} from 'react-router';
 import axios from 'axios';
 import { message } from 'antd';
+import moment from 'moment';
 
 const {Title} = Typography;
 
@@ -73,8 +74,8 @@ const OrganiserDetails = () => {
      email: organiser.email,
      pan: organiser.pan,
      address: organiser.address,
-     dob: new Date(organiser.dob).getFullYear(), 
-     doj: new Date(organiser.doj).getFullYear(), 
+     dob:  moment(new Date(organiser.dob)).format('YYYY-MM-DD'), 
+     doj: moment(new Date(organiser.doj)).format('YYYY-MM-DD'), 
  
    })
    return data;
@@ -89,11 +90,11 @@ const OrganiserDetails = () => {
         <Row gutter={[40, 0]}>
           <Col span={18}>
             <Title level={2}>
-            Organiser  Details
+            Organiser  details
             </Title>
             </Col>
           <Col span={6}>
-          <Button onClick={handleClick} block>Add Organiser</Button>
+          <Button  type="primary" shape="round"   onClick={handleClick} block>Add Organiser</Button>
           </Col>
         </Row>
         <Row gutter={[40, 0]}>

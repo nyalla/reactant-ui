@@ -1,11 +1,8 @@
 import React from 'react';
 import { Menu } from 'antd';
-import SubMenu from 'antd/lib/menu/SubMenu';
-import { ClusterOutlined,TeamOutlined ,ReadOutlined   } from '@ant-design/icons';
+import { ClusterOutlined,TeamOutlined   } from '@ant-design/icons';
 import {
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
+    UserOutlined
   } from '@ant-design/icons';
 import {useHistory}  from 'react-router';
 

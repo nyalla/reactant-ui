@@ -15,7 +15,7 @@ import UserDetails from "../components/pages/userDetails";
 import { Layout,Avatar } from 'antd';
 import {
     MenuUnfoldOutlined,
-    MenuFoldOutlined
+    MenuFoldOutlined,UserOutlined
   } from '@ant-design/icons';
 
 const { Header, Sider, Content,Footer} = Layout;
@@ -46,7 +46,9 @@ const ApplicationRoutes = () => {
                           style: {color: "#fff"}
                       })}
                       {/* <Title style={{ color: 'red' }} level={3}>Chitfor</Title> */}
-                      <Avatar style={{ float: 'right' }} src='./dp.png' />
+                      <Avatar style={{ backgroundColor: '#87d068' ,float: 'right' }} icon={<UserOutlined />} />
+                      {/* <Avatar style={{ float: 'right' }}  src="./dp.png" /> */}
+                      {/* <Avatar src='../dp.png' /> */}
             </Header>
               <Content style={{margin: '24px 16px', padding: 24, minHeight: "calc(100vh - 114px)", background: "#fff"}}>
                 <Switch>
