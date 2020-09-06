@@ -1,9 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { ClusterOutlined,TeamOutlined   } from '@ant-design/icons';
-import {
-    UserOutlined
-  } from '@ant-design/icons';
+import { ClusterOutlined,TeamOutlined ,UserOutlined,SnippetsOutlined  } from '@ant-design/icons';
 import {useHistory}  from 'react-router';
 
 const SideNav = () => {
@@ -21,6 +18,9 @@ const SideNav = () => {
     }
     const handleUserClick = () => {
         history.push('/UserDetails');
+    }
+    const handleSchemeClick = () => {
+        history.push('/SchemeDetails');
     }
 
   return (
@@ -42,7 +42,11 @@ const SideNav = () => {
                 <Menu.Item key="4" onClick={handleUserClick}>
                     <UserOutlined />
                     <span> Members</span>
-                </Menu.Item>      
+                </Menu.Item>  
+                <Menu.Item key="5" onClick={handleSchemeClick}>
+                <SnippetsOutlined />
+                    <span> Schemes</span>
+                </Menu.Item>       
             </Menu>
         </div>
   );

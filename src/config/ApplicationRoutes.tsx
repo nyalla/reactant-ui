@@ -11,6 +11,8 @@ import OrganiserForm from "../components/pages/OrganiserForm";
 import OrganiserDetails from "../components/pages/organiserDetails";
 import UserForm from "../components/pages/UserForm";
 import UserDetails from "../components/pages/userDetails";
+import SchemeForm from "../components/pages/SchemeForm";
+import SchemeDetails from "../components/pages/schemeDetails";
 
 import { Layout,Avatar } from 'antd';
 import {
@@ -62,10 +64,12 @@ const ApplicationRoutes = () => {
                     <Route path="/OrganiserDetails" component={OrganiserDetails} />
                     <Route path="/UserForm" component={UserForm} />
                     <Route path="/UserDetails" component={UserDetails} />
+                    <Route path="/SchemeForm" component={SchemeForm} />
+                    <Route path="/SchemeDetails" component={SchemeDetails} />
                     <Redirect to="/organisationDetails" from="/" />
                 </Switch>
               </Content>
-              <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+              <Footer style={{ textAlign: 'center' }}>Design By Highlancers Team</Footer>
           </Layout>
         </Layout>
     </Router>

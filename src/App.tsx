@@ -4,8 +4,8 @@ import Land from "./components/pages/land";
 
 function App() {
   return (
-    <ApplicationRoutes />
-    //<Land/>
+     <ApplicationRoutes />
+    // <Land/>
   );
 }
 

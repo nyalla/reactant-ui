@@ -29,7 +29,8 @@ const UserDetails = () => {
   const columns = [
     {
       title: 'Name',
-      dataIndex: 'name'
+      dataIndex: 'name',
+      render: (text: React.ReactNode) => <a>{text}</a>
     },
     {
       title: 'Phone',
@@ -54,7 +55,7 @@ const UserDetails = () => {
      
   ];
 
-  const data = [{
+  const data:any = [{
   }];
 
   allData.map((member: any) => {
@@ -71,8 +72,6 @@ const UserDetails = () => {
    return data;
  });
 
- console.log("hi");
- console.log(data);
 
   const handleClick = () => {
     history.push('/UserForm')
@@ -106,7 +105,7 @@ const UserDetails = () => {
     dataSource={data}
     renderItem={item => (
       <List.Item>
-        <Card title={'name'}>Card content</Card>
+        <Card title={item.name}>Card content</Card>
       </List.Item>
     )}
   /> */}
